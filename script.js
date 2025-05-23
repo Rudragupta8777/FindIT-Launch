@@ -152,3 +152,23 @@ document.addEventListener("mousemove", (e) => {
     mouseX * 10
   }px, ${mouseY * 10}px)`;
 });
+
+// Terms & Conditions Modal Logic
+const termsModal = document.getElementById("termsModal");
+const openTerms = document.getElementById("openTerms");
+const closeTerms = document.getElementById("closeTerms");
+
+openTerms.addEventListener("click", (e) => {
+  e.preventDefault();
+  termsModal.style.display = "flex";
+});
+
+closeTerms.addEventListener("click", () => {
+  termsModal.style.display = "none";
+});
+
+window.addEventListener("click", (e) => {
+  if (e.target === termsModal) {
+    termsModal.style.display = "none";
+  }
+});
