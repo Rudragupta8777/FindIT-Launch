@@ -259,6 +259,7 @@ header {
   transition: transform 0.6s ease;
 }
 
+
 .cta-button:hover::before {
   transform: translateX(100%);
 }
