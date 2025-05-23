@@ -784,7 +784,7 @@ footer {
   position: relative;
   box-shadow: 0 0 30px rgba(244, 208, 63, 0.2);
   scrollbar-width: none; /* Firefox */
-  -ms-overflow-style: none;  /* IE 10+ */
+  -ms-overflow-style: none; /* IE 10+ */
 }
 
 .terms-content::-webkit-scrollbar {
@@ -815,7 +815,126 @@ footer {
   transform: scale(1.2);
 }
 
+.developer-modal {
+  display: none;
+  position: fixed;
+  z-index: 9999;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(10, 10, 10, 0.95);
+  backdrop-filter: blur(10px);
+  justify-content: center;
+  align-items: center;
+  padding: 40px 20px;
+}
 
+.developer-content {
+  background-color: #1a1a1a;
+  border: 2px solid #f2d385;
+  border-radius: 20px;
+  padding: 10px 10px 5px;
+  max-width: 500px;
+  width: 100%;
+  text-align: center;
+  color: #ffeec3;
+  box-shadow: 0 0 30px rgba(244, 208, 63, 0.2);
+  overflow-y: auto;
+  max-height: 90vh;
+  position: relative;
+  scrollbar-width: none; /* Firefox */
+  -ms-overflow-style: none; /* IE 10+ */
+}
+
+.terms-content::-webkit-scrollbar {
+  display: none; /* Chrome, Safari, Edge */
+}
+
+.modal-heading {
+  font-size: 1.8rem;
+  margin-bottom: 20px;
+  font-weight: 700;
+  color: #ffeec3;
+}
+
+.close-developer {
+  position: absolute;
+  top: 2px;
+  right: 30px;
+  font-size: 40px;
+  color: #ffeec3;
+  cursor: pointer;
+  transition: transform 0.3s ease;
+}
+
+.close-developer:hover {
+  transform: scale(1.2);
+}
+
+.developer-block {
+  margin-bottom: 20px; /* Increased spacing */
+}
+
+.developer-img-border {
+  width: 150px;
+  height: 150px;
+  border: 4px solid #f2d385;
+  border-radius: 50%;
+  margin: 0 auto 12px;
+  overflow: hidden;
+}
+
+.developer-img-border img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.developer-block h3 {
+  font-size: 1.4rem;
+  margin-bottom: 0px;
+  color: #ffeec3;
+}
+
+.developer-block p {
+  font-size: 1rem;
+  margin-bottom: 10px;
+  color: #ffffff;
+}
+
+.developer-buttons {
+  display: flex;
+  justify-content: center;
+  gap: 15px;
+  flex-wrap: wrap;
+}
+
+.dev-btn {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  background: #ffeec3;
+  color: #1a1a1a;
+  padding: 12px 20px;
+  border-radius: 12px;
+  text-decoration: none;
+  font-weight: 600;
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+  border: none;
+}
+
+.dev-btn:hover {
+  box-shadow: 0 0 12px rgba(244, 208, 63, 0.5);
+  transform: translateY(-3px) scale(1.04);
+}
+
+.dev-btn img {
+  width: 20px;
+  height: 20px;
+}
 
 @keyframes particleFloat {
   0% {

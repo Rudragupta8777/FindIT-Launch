@@ -172,3 +172,28 @@ window.addEventListener("click", (e) => {
     termsModal.style.display = "none";
   }
 });
+
+
+// Developer Modal Logic
+const developerModal = document.getElementById("developerModal");
+const openDeveloper = document.getElementById("openDeveloper");
+const closeDeveloper = document.getElementById("closeDeveloper");
+
+if (openDeveloper) {
+  openDeveloper.addEventListener("click", (e) => {
+    e.preventDefault();
+    developerModal.style.display = "flex";
+  });
+}
+
+if (closeDeveloper) {
+  closeDeveloper.addEventListener("click", () => {
+    developerModal.style.display = "none";
+  });
+}
+
+window.addEventListener("click", (e) => {
+  if (e.target === developerModal) {
+    developerModal.style.display = "none";
+  }
+});
