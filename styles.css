@@ -4,6 +4,15 @@
   box-sizing: border-box;
 }
 
+html::-webkit-scrollbar {
+    display: none; /* Hide scrollbar for WebKit browsers */
+}
+
+/* Hide scrollbar in Firefox */
+html {
+    scrollbar-width: none;
+}
+
 html {
   scroll-behavior: smooth;
   overflow-x: hidden;
@@ -1026,10 +1035,11 @@ body.modal-open {
 }
 
 @media (max-width: 768px) {
+  /* Mobile styles */
   .nav-links {
     margin-left: 0%;
   }
-  /* Mobile styles */
+
   .header-content {
     position: relative;
   }
@@ -1160,12 +1170,38 @@ body.modal-open {
   }
 
   .developer-buttons {
-    flex-direction: column;
-    gap: 10px;
+    flex-direction: row; /* Change from column to row */
+    justify-content: center;
+    gap: 15px;
+    flex-wrap: wrap; /* Allow wrapping if needed */
   }
 
   .dev-btn {
-    justify-content: center;
+    min-width: 120px; /* Set a minimum width for better appearance */
+    flex: 1; /* Allow buttons to grow equally */
+    max-width: 200px; /* Prevent buttons from getting too wide */
+    white-space: nowrap; /* Prevent text from wrapping */
+    padding: 12px 15px; /* Adjust padding for mobile */
+  }
+
+  .terms-content h2{
+    font-size: 1.5rem;
+  }
+
+  .close-terms {
+    top: 6px;
+  }
+
+  .close-developer{
+    top: 6px;
+  }
+  .modal-heading{
+    font-size: 1.5rem;
+  }
+
+  .screen-button{
+    font-size: 0.9rem;
+    font-weight: 600;
   }
 }
 
@@ -1197,5 +1233,20 @@ body.modal-open {
   .developer-content {
     padding: 20px;
     max-width: 95%;
+  }
+
+  .developer-buttons {
+    gap: 10px;
+  }
+  
+  .dev-btn {
+    min-width: 100px;
+    padding: 10px 12px;
+    font-size: 0.9rem;
+  }
+  
+  .dev-btn img {
+    width: 16px;
+    height: 16px;
   }
 }
