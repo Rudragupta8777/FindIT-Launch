@@ -439,22 +439,6 @@ header {
   border-color: rgba(244, 208, 63, 0.3);
 }
 
-.feature-icon {
-  font-size: 4rem;
-  margin-bottom: 25px;
-  animation: iconFloat 3s ease-in-out infinite;
-}
-
-@keyframes iconFloat {
-  0%,
-  100% {
-    transform: translateY(0px);
-  }
-  50% {
-    transform: translateY(-10px);
-  }
-}
-
 .feature-card h3 {
   font-size: 1.6rem;
   margin-bottom: 20px;
@@ -601,6 +585,16 @@ header {
   transform: translateY(-8px) scale(1.05);
   box-shadow: 0 30px 70px rgba(244, 208, 63, 0.5);
 }
+
+.download-icon {
+  width: 40px;
+  height: 40px;
+  margin-right: 12px;
+  vertical-align: middle;
+  filter: drop-shadow(0 0 5px rgba(244, 208, 63, 0.5));
+  transition: transform 0.3s ease;
+}
+
 
 /* Enhanced Footer */
 footer {

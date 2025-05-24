@@ -173,7 +173,6 @@ window.addEventListener("click", (e) => {
   }
 });
 
-
 // Developer Modal Logic
 const developerModal = document.getElementById("developerModal");
 const openDeveloper = document.getElementById("openDeveloper");
@@ -197,3 +196,28 @@ window.addEventListener("click", (e) => {
     developerModal.style.display = "none";
   }
 });
+
+// Privacy Policy Modal Logic
+const privacyModal = document.getElementById("privacyModal");
+const openPrivacy = document.getElementById("openPrivacy");
+const closePrivacy = document.getElementById("closePrivacy");
+
+if (openPrivacy) {
+  openPrivacy.addEventListener("click", (e) => {
+    e.preventDefault();
+    privacyModal.style.display = "flex";
+  });
+}
+
+if (closePrivacy) {
+  closePrivacy.addEventListener("click", () => {
+    privacyModal.style.display = "none";
+  });
+}
+
+window.addEventListener("click", (e) => {
+  if (e.target === privacyModal) {
+    privacyModal.style.display = "none";
+  }
+});
+
