@@ -60,35 +60,70 @@ setInterval(() => {
   }
 }, 800);
 
-// Enhanced download button functionality
-document.getElementById("downloadApp").addEventListener("click", function (e) {
-  e.preventDefault();
+document
+  .getElementById("downloadApp")
+  .addEventListener("click", async function (e) {
+    e.preventDefault();
 
-  const button = this;
-  const originalText = button.textContent;
+    const button = this;
+    const icon = document.getElementById("downloadIcon");
+    const text = document.getElementById("downloadText");
 
-  // Animation sequence
-  button.textContent = "📥 Preparing Download...";
-  button.style.background = "linear-gradient(45deg, #2ecc71, #27ae60)";
-  button.style.transform = "scale(0.98)";
+    const originalIcon = "images/androidicon.svg";
+    const preparingIcon = "images/preparing.svg";
+    const downloadingIcon = "images/preparing.svg";
+    const successIcon = "images/success.svg";
+    const originalText = "Download for Android";
 
-  setTimeout(() => {
-    button.textContent = "🚀 Downloading...";
-    button.style.background = "linear-gradient(45deg, #3498db, #2980b9)";
+    // Step 1: Preparing
+    icon.src = preparingIcon;
+    text.textContent = "Preparing Download...";
+    button.style.transform = "scale(0.98)";
 
-    setTimeout(() => {
-      button.textContent = "✅ Download Complete!";
-      button.style.background = "linear-gradient(45deg, #2ecc71, #27ae60)";
-      button.style.transform = "scale(1.05)";
+    await new Promise((res) => setTimeout(res, 1000)); // simulate preparing delay
+
+    // Step 2: Downloading
+    icon.src = downloadingIcon;
+    text.textContent = "Downloading...";
+    button.style.transform = "scale(1.02)";
+
+    try {
+      const response = await fetch("downloads/hello.pdf"); // <-- your file path
+      const blob = await response.blob();
+
+      // Step 3: Trigger browser download after fetch completes
+      const url = window.URL.createObjectURL(blob);
+      const a = document.createElement("a");
+      a.href = url;
+      a.download = "findit-app";
+      document.body.appendChild(a);
+      a.click();
+      a.remove();
+      window.URL.revokeObjectURL(url);
+
+      // Step 4: Success
+      icon.src = successIcon;
+      text.textContent = "Download Complete!";
+      button.classList.add("green");
 
       setTimeout(() => {
-        button.textContent = originalText;
-        button.style.background = "linear-gradient(45deg, #ffeec3, #f2d385)";
+        // Reset
+        icon.src = originalIcon;
+        text.textContent = originalText;
+        button.classList.remove("green");
         button.style.transform = "scale(1)";
       }, 3000);
-    }, 2000);
-  }, 1000);
-});
+    } catch (err) {
+      console.error("Download failed:", err);
+      text.textContent = "⚠️ Download Failed!";
+      icon.src = originalIcon;
+      setTimeout(() => {
+        text.textContent = originalText;
+        icon.src = originalIcon;
+        button.style.transform = "scale(1)";
+      }, 3000);
+    }
+  });
 
 // Intersection Observer for scroll animations
 const observerOptions = {
@@ -220,4 +255,3 @@ window.addEventListener("click", (e) => {
     privacyModal.style.display = "none";
   }
 });
-
