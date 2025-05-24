@@ -41,7 +41,9 @@ function createParticle() {
   particle.style.width = size + "px";
   particle.style.height = size + "px";
 
-  particle.style.animationDuration = Math.random() * 8 + 8 + "s";
+  // Smoother animation with reduced particles on mobile
+  const isMobile = window.innerWidth <= 768;
+  particle.style.animationDuration = (isMobile ? Math.random() * 12 + 12 : Math.random() * 8 + 8) + "s";
   particle.style.animationDelay = Math.random() * 2 + "s";
 
   document.querySelector(".particle-container").appendChild(particle);
@@ -50,7 +52,7 @@ function createParticle() {
     if (particle.parentNode) {
       particle.remove();
     }
-  }, 15000);
+  }, 20000); // Increased timeout to match longer animation
 }
 
 // Create particles more frequently
@@ -151,16 +153,15 @@ window.addEventListener("scroll", () => {
   const scrolled = window.pageYOffset;
   const parallax = scrolled * 0.5;
 
-  document.querySelector(
-    ".blob1"
-  ).style.transform = `translateY(${parallax}px) rotate(${scrolled * 0.1}deg)`;
-  document.querySelector(".blob2").style.transform = `translateY(${
-    parallax * -0.8
-  }px) rotate(${scrolled * -0.1}deg)`;
-  document.querySelector(".blob3").style.transform = `translateY(${
-    parallax * 1.2
-  }px) rotate(${scrolled * 0.15}deg)`;
-});
+  requestAnimationFrame(() => {
+    document.querySelector(".blob1").style.transform = 
+      `translateY(${parallax}px) rotate(${scrolled * 0.1}deg)`;
+    document.querySelector(".blob2").style.transform = 
+      `translateY(${parallax * -0.8}px) rotate(${scrolled * -0.1}deg)`;
+    document.querySelector(".blob3").style.transform = 
+      `translateY(${parallax * 1.2}px) rotate(${scrolled * 0.15}deg)`;
+  });
+}, { passive: true });
 
 // Add loading animation
 window.addEventListener("load", () => {
@@ -177,16 +178,15 @@ document.addEventListener("mousemove", (e) => {
   const mouseX = e.clientX / window.innerWidth;
   const mouseY = e.clientY / window.innerHeight;
 
-  document.querySelector(".blob1").style.transform += ` translate(${
-    mouseX * 20
-  }px, ${mouseY * 20}px)`;
-  document.querySelector(".blob2").style.transform += ` translate(${
-    mouseX * -15
-  }px, ${mouseY * -15}px)`;
-  document.querySelector(".blob3").style.transform += ` translate(${
-    mouseX * 10
-  }px, ${mouseY * 10}px)`;
-});
+  requestAnimationFrame(() => {
+    document.querySelector(".blob1").style.transform = 
+      `translate(${mouseX * 20}px, ${mouseY * 20}px)`;
+    document.querySelector(".blob2").style.transform = 
+      `translate(${mouseX * -15}px, ${mouseY * -15}px)`;
+    document.querySelector(".blob3").style.transform = 
+      `translate(${mouseX * 10}px, ${mouseY * 10}px)`;
+  });
+}, { passive: true });
 
 // Terms & Conditions Modal Logic
 const termsModal = document.getElementById("termsModal");
@@ -196,10 +196,12 @@ const closeTerms = document.getElementById("closeTerms");
 openTerms.addEventListener("click", (e) => {
   e.preventDefault();
   termsModal.style.display = "flex";
+  openModal(termsModal);
 });
 
 closeTerms.addEventListener("click", () => {
   termsModal.style.display = "none";
+  closeModal(termsModal);
 });
 
 window.addEventListener("click", (e) => {
@@ -257,20 +259,33 @@ window.addEventListener("click", (e) => {
 });
 
 // Hamburger menu functionality
-const hamburger = document.getElementById('hamburger');
-const navLinks = document.querySelector('.nav-links');
+const hamburger = document.getElementById("hamburger");
+const navLinks = document.querySelector(".nav-links");
 
 if (hamburger && navLinks) {
-    hamburger.addEventListener('click', () => {
-        hamburger.classList.toggle('active');
-        navLinks.classList.toggle('active');
-    });
+  hamburger.addEventListener("click", () => {
+    hamburger.classList.toggle("active");
+    navLinks.classList.toggle("active");
+  });
 
-    // Close menu when clicking on a link
-    document.querySelectorAll('.nav-links a').forEach(link => {
-        link.addEventListener('click', () => {
-            hamburger.classList.remove('active');
-            navLinks.classList.remove('active');
-        });
+  // Close menu when clicking on a link
+  document.querySelectorAll(".nav-links a").forEach((link) => {
+    link.addEventListener("click", () => {
+      hamburger.classList.remove("active");
+      navLinks.classList.remove("active");
     });
+  });
+}
+
+// Update modal functions to lock scroll
+function openModal(modal) {
+  document.body.classList.add('modal-open');
+  modal.style.display = "flex";
+  document.documentElement.style.overflow = 'hidden';
+}
+
+function closeModal(modal) {
+  document.body.classList.remove('modal-open');
+  modal.style.display = "none";
+  document.documentElement.style.overflow = '';
 }
