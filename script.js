@@ -196,12 +196,10 @@ const closeTerms = document.getElementById("closeTerms");
 openTerms.addEventListener("click", (e) => {
   e.preventDefault();
   termsModal.style.display = "flex";
-  openModal(termsModal);
 });
 
 closeTerms.addEventListener("click", () => {
   termsModal.style.display = "none";
-  closeModal(termsModal);
 });
 
 window.addEventListener("click", (e) => {
@@ -289,3 +287,25 @@ function closeModal(modal) {
   modal.style.display = "none";
   document.documentElement.style.overflow = '';
 }
+
+// Open modal on "Contact Us" click
+document.querySelectorAll("a").forEach(link => {
+  if (link.textContent.trim().toLowerCase() === "contact us") {
+    link.addEventListener("click", (e) => {
+      e.preventDefault();
+      document.getElementById("contactModal").style.display = "flex";
+    });
+  }
+});
+
+// Close modal
+document.getElementById("closeContact").addEventListener("click", () => {
+  document.getElementById("contactModal").style.display = "none";
+});
+
+window.addEventListener("click", (e) => {
+  const modal = document.getElementById("contactModal");
+  if (e.target === modal) {
+    modal.style.display = "none";
+  }
+});
