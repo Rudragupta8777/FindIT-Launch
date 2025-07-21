@@ -90,14 +90,14 @@ document
     button.style.transform = "scale(1.02)";
 
     try {
-      const response = await fetch("downloads/hello.pdf"); // <-- your file path
+      const response = await fetch("downloads/FindIT.apk"); // <-- your file path
       const blob = await response.blob();
 
       // Step 3: Trigger browser download after fetch completes
       const url = window.URL.createObjectURL(blob);
       const a = document.createElement("a");
       a.href = url;
-      a.download = "findit-app";
+      a.download = "FindIT";
       document.body.appendChild(a);
       a.click();
       a.remove();

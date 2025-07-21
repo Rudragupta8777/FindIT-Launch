@@ -196,6 +196,27 @@ header {
   padding-bottom: 40px;
 }
 
+.platform-text {
+  color: #ffffff;
+  font-size: 2rem;
+  font-weight: 500;
+}
+
+.blink-yellow {
+  color: #fedb83;
+  animation: blink-yellow 1.5s infinite;
+}
+
+@keyframes blink-yellow {
+  0%,
+  100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.4;
+  }
+}
+
 /* Hero Section */
 .hero {
   min-height: 115vh;
@@ -1020,7 +1041,6 @@ body.modal-open {
   transform: scale(1.05);
   transition: all 0.3s ease;
 }
-
 
 /* Scroll animations */
 .fade-in {
