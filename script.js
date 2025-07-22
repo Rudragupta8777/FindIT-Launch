@@ -64,7 +64,7 @@ setInterval(() => {
 
 document
   .getElementById("downloadApp")
-  .addEventListener("click", async function (e) {
+  .addEventListener("click", function (e) {
     e.preventDefault();
 
     const button = this;
@@ -73,7 +73,6 @@ document
 
     const originalIcon = "images/androidicon.svg";
     const preparingIcon = "images/preparing.svg";
-    const downloadingIcon = "images/preparing.svg";
     const successIcon = "images/success.svg";
     const originalText = "Download for Android";
 
@@ -82,49 +81,30 @@ document
     text.textContent = "Preparing Download...";
     button.style.transform = "scale(0.98)";
 
-    await new Promise((res) => setTimeout(res, 1000)); // simulate preparing delay
-
-    // Step 2: Downloading
-    icon.src = downloadingIcon;
-    text.textContent = "Downloading...";
-    button.style.transform = "scale(1.02)";
-
-    try {
-      const response = await fetch("downloads/FindIT.apk"); // <-- your file path
-      const blob = await response.blob();
-
-      // Step 3: Trigger browser download after fetch completes
-      const url = window.URL.createObjectURL(blob);
+    // Step 2: Start browser download after short delay
+    setTimeout(() => {
+      // Create download link and trigger browser's native download
       const a = document.createElement("a");
-      a.href = url;
-      a.download = "FindIT";
+      a.href = "downloads/FindIT.apk"; // your file path
+      a.download = "FindIT.apk"; // filename for download
       document.body.appendChild(a);
       a.click();
       a.remove();
-      window.URL.revokeObjectURL(url);
 
-      // Step 4: Success
+      // Step 3: Show success state
       icon.src = successIcon;
-      text.textContent = "Download Complete!";
+      text.textContent = "Download Started!";
       button.classList.add("green");
+      button.style.transform = "scale(1.02)";
 
+      // Step 4: Reset after delay
       setTimeout(() => {
-        // Reset
         icon.src = originalIcon;
         text.textContent = originalText;
         button.classList.remove("green");
         button.style.transform = "scale(1)";
       }, 3000);
-    } catch (err) {
-      console.error("Download failed:", err);
-      text.textContent = "⚠️ Download Failed!";
-      icon.src = originalIcon;
-      setTimeout(() => {
-        text.textContent = originalText;
-        icon.src = originalIcon;
-        button.style.transform = "scale(1)";
-      }, 3000);
-    }
+    }, 1000); // 1 second preparation delay
   });
 
 // Intersection Observer for scroll animations
