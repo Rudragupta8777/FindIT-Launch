@@ -12,7 +12,6 @@ document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
   });
 });
 
-// Enhanced header scroll effect
 window.addEventListener("scroll", () => {
   const header = document.querySelector("header");
   const scrolled = window.scrollY;
