@@ -1,16 +1,45 @@
-# React + Vite
+<div align="center">
+  <img src="https://ik.imagekit.io/d5u8bqewg/PaymentX/finditreadme_logo.png?updatedAt=1753820420321" alt="FindIt Logo" width="40%" />
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+  # FindIT - Official Website
 
-Currently, two official plugins are available:
+  <p align="center">
+    <img src="https://img.shields.io/badge/React-61DAFB?style=for-the-badge&logo=react&logoColor=black" />
+    <img src="https://img.shields.io/badge/Vite-646CFF?style=for-the-badge&logo=vite&logoColor=white" />
+    <img src="https://img.shields.io/badge/JavaScript-F7DF1E?style=for-the-badge&logo=javascript&logoColor=black" />
+    <img src="https://img.shields.io/badge/CSS3-1572B6?style=for-the-badge&logo=css3&logoColor=white" />
+  </p>
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+  <p align="center">
+    <b>The modern, interactive landing page for the FindIT Android Application.</b>
+    <br />
+    <a href="https://www.finditapp.me"><strong>🌐 Visit Live Site »</strong></a>
+    <br />
+    <br />
+    <a href="https://github.com/Rudragupta8777/FindIT">View App Repository</a>
+    ·
+    <a href="https://github.com/Rudragupta8777/FindIT/releases">Download APK</a>
+  </p>
+</div>
 
-## React Compiler
+---
 
-The React Compiler is currently not compatible with SWC. See [this issue](https://github.com/vitejs/vite-plugin-react/issues/428) for tracking the progress.
+## ⚡ Overview
 
-## Expanding the ESLint configuration
+This repository contains the source code for the **FindIT marketing website**. It serves as the primary gateway for users to learn about the app, understand its features, and download the APK securely.
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+Built with **React + Vite** for blazing-fast performance and styled with custom CSS for a premium glassmorphism aesthetic.
+
+## 🎨 Website Features
+
+* **✨ Interactive UI:** Smooth scroll animations, floating particles, and morphing blobs.
+* **📱 Fully Responsive:** Optimized layout for Desktops, Tablets, and Mobile devices.
+* **📥 Smart Download:** Dynamic button logic to handle APK downloads.
+* **📄 Information Hub:** showcases features, "How it Works" guide, and legal/privacy modals.
+
+## 🛠️ Tech Stack
+
+* **Framework:** [React](https://react.dev/)
+* **Build Tool:** [Vite](https://vitejs.dev/)
+* **Styling:** Custom CSS3 (Glassmorphism & Animations)
+* **Icons:** SVG & Custom Assets
