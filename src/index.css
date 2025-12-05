@@ -19,6 +19,17 @@ html {
   -webkit-overflow-scrolling: touch;
 }
 
+a, 
+button, 
+.hamburger, 
+.close-terms, 
+.close-developer, 
+.screen-button, 
+input[type="submit"],
+.pointer {
+    cursor: url('data:image/svg+xml;utf8,<svg fill="%23f2d385" xmlns="http://www.w3.org/2000/svg" height="24" width="24" viewBox="0 0 24 24"><path d="M21 11H13V3c0-1.1-.9-2-2-2s-2 .9-2 2v13l-4.1-2.05c-.39-.2-.84-.18-1.22.06L3 14.5l7.1 7.1c.9.9 2.1 1.4 3.4 1.4h6.5c1.1 0 2-.9 2-2V13c0-1.1-.9-2-2-2z"/></svg>') 8 2, pointer !important;
+}
+
 body {
   cursor: url('data:image/svg+xml;utf8,<svg fill="%23f2d385" xmlns="http://www.w3.org/2000/svg" height="32" width="32" viewBox="0 0 24 24"><path d="M6 4l12 8-12 8z"/></svg>')
       0 0,
@@ -192,7 +203,7 @@ header {
 
 .main-content-wrapper {
   background: linear-gradient(135deg, #0a0a0a 0%, #1a1a1a 50%, #2d2d2d 100%);
-  padding-top: 0px; /* to avoid overlap with fixed header */
+  padding-top: 0px;
   padding-bottom: 40px;
 }
 
@@ -486,13 +497,12 @@ header {
 /* How It Works */
 .how-it-works {
   padding: 120px 0;
-  /* background: linear-gradient(135deg, #0a0a0a 0%, #1a1a1a 50%, #2d2d2d 100%); */
   position: relative;
 }
 
 .steps {
   display: grid;
-  grid-template-columns: repeat(4, 1fr); /* exactly 4 steps side by side */
+  grid-template-columns: repeat(4, 1fr); 
   gap: 50px;
 }
 
@@ -805,7 +815,6 @@ footer {
 
 body.modal-open {
   overflow: hidden;
-  position: fixed;
   width: 100%;
   height: 100%;
 }
@@ -854,12 +863,71 @@ body.modal-open {
   display: none; /* Chrome, Safari, Edge */
 }
 
+/* --- Add this to the bottom of src/index.css --- */
+
+/* Improved Typography for Modals */
 .terms-content h2 {
-  margin-bottom: 20px;
+  font-size: 2.2rem;
+  margin-bottom: 30px;
   color: #ffeec3;
-  font-size: 2rem;
   text-align: center;
+  border-bottom: 1px solid rgba(255, 238, 195, 0.2);
+  padding-bottom: 15px;
 }
+
+.terms-content .text-block {
+  text-align: left; /* Ensures text is not centered like the title */
+  padding: 0 10px;
+}
+
+.terms-content h3 {
+  color: #ffeec3;
+  font-size: 1.3rem;
+  margin-top: 30px;
+  margin-bottom: 12px;
+  font-weight: 600;
+}
+
+.terms-content p {
+  color: rgba(255, 255, 255, 0.9);
+  margin-bottom: 15px;
+  line-height: 1.7;
+}
+
+.terms-content ul {
+  list-style-type: none; /* Remove default bullets to use custom ones or just align better */
+  padding-left: 20px;
+  margin-bottom: 20px;
+}
+
+.terms-content li {
+  position: relative;
+  padding-left: 20px;
+  margin-bottom: 10px;
+  color: rgba(255, 255, 255, 0.85);
+  line-height: 1.6;
+}
+
+/* Custom Gold Bullet Points */
+.terms-content li::before {
+  content: "•";
+  color: #ffeec3;
+  font-weight: bold;
+  position: absolute;
+  left: 0;
+  top: 0px;
+}
+
+/* Intro text specific styling */
+.intro-text {
+  font-size: 1.1rem;
+  text-align: center;
+  margin-bottom: 30px;
+  color: #fff;
+  font-style: italic;
+  opacity: 0.9;
+}
+
 .terms-content p {
   margin-top: 25px;
 }
@@ -1325,3 +1393,7 @@ body.modal-open {
     font-size: 1.1rem;
   }
 }
+
+
+.text-btn { background: none; border: none; color: rgba(255, 255, 255, 0.7); cursor: pointer; font-size: inherit; font-family: inherit; padding: 5px 0; transition: all 0.3s ease; }
+.text-btn:hover { color: #ffeec3; padding-left: 10px; }
