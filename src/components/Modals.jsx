@@ -110,7 +110,7 @@ const Modals = ({ activeModal, onClose }) => {
                 <p>Any changes to this policy will be posted and announced via the app.</p>
 
                 <h3>8. Contact</h3>
-                <p>For any questions, contact us at: <span style={{color: '#ffeec3'}}>support@findit.college.edu</span></p>
+                <p>For any questions, contact us at: <span style={{color: '#ffeec3'}}>support@finditapp.me</span></p>
             </div>
           </div>
         </div>

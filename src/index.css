@@ -10,7 +10,12 @@ html::-webkit-scrollbar {
 
 /* Hide scrollbar in Firefox */
 html {
+  -ms-overflow-style: none;  /* IE and Edge */
   scrollbar-width: none;
+}
+
+html, body {
+    overflow-y: auto; 
 }
 
 html {
@@ -40,7 +45,6 @@ body {
   overflow-x: hidden;
   position: relative;
   width: 100%;
-  overscroll-behavior-y: contain;
   line-height: 1.6;
 }
 
