@@ -13,7 +13,7 @@
   <p align="center">
     <b>The modern, interactive landing page for the FindIT Android Application.</b>
     <br />
-    <a href="https://www.finditapp.me"><strong>🌐 Visit Live Site »</strong></a>
+    <a href="https://findit-app-new.vercel.app"><strong>🌐 Visit Live Site »</strong></a>
     <br />
     <br />
     <a href="https://github.com/Rudragupta8777/FindIT">View App Repository</a>
